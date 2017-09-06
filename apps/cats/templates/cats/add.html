@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add a cat</title>
+    <style>
+    #error{
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <h1>Add a Cat!</h1>
+    <form action="{% url 'cats:create_cat' %}" method="post">
+        <input type="hidden" name="user_id" value="{{request.session.user_id}}">
+        <div>
+            <input type="text" name="cat_name"><label for="cat_name">Name</label>
+        </div>
+        <br>
+        <div>
+            <input type="text" name="cat_age"><label for="cat_age">Age</label>
+        </div>
+        <br>
+        <div>
+            <div id="error">
+                {{error.error}}
+            </div>
+            <input type="submit" value="Add!">
+        </div>
+        {% csrf_token %}
+    </form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update Cat</title>
+    <style>
+    #error{
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <form action="{% url 'cats:edit' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="cat_id" value="{{cat_id}}">
+        <label for="cat_name">Change name:</label>
+        <input type="text" name="cat_name"><br><br>
+        <label for="cat_age">Change age:</label>
+        <input type="text" name="cat_age"><br><br>
+        <div id="error">
+            {{error.error}}
+        </div>
+        <br>
+        <input type="submit" value="Update!">
+    </form>
+    <br>
+    <a href="{% url 'cats:index' %}">Changed my mind! :)</a>
+</body>
+</html>

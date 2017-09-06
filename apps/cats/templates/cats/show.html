@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>{{cat.name}}</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>{{cat.age}}</td>
+        </tr>
+        <tr>
+            <td>Likes:</td>
+            <td>{{likes_count}}</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <a href="{% url 'cats:index' %}">Go back</a>
+</body>
+</html>
